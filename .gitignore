@@ -1,0 +1,7 @@
+node_modules/
+.env
+npm-debug.log
+.scannerwork/
+package-lock.json
+.env.development
+.env.production

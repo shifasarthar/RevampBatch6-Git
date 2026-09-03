@@ -16,6 +16,7 @@ jobs:
         run: |
           node server.js &
           sleep 5
+          #test
           curl http://localhost:8080
           pkill -f "node server.js"
 

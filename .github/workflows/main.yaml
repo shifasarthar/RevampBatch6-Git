@@ -1,0 +1,23 @@
+name: Node pipeline
+on: push
+jobs:
+  node:
+    runs-on: wsl-linux
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install packages
+        run: npm install
+      - name: Run application
+        run: |
+          node server.js &
+          sleep 5
+          curl http://localhost:8080
+          pkill -f "node server.js"
+
+       
+      

@@ -14,10 +14,9 @@ jobs:
         run: npm install
       - name: Run application
         run: |
-          node server.js &
-          sleep 5
-          curl http://localhost:8080
-          pkill -f "node server.js"
-
-       
+           echo "PORT=8080" > .env.development
+           echo "APP=Development" >> .env.development
+           node server.js &
+           sleep 5
+           curl --fail http://localhost:8080
       
